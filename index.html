@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Group</title>
+    <link rel="stylesheet" href="./FontAwesome-6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo"><img src="./images/VTI_logo.png"></div>
+            <nav>
+                <ul>
+                    <li><a href="#"><span>🏠</span> Home</a></li>
+                    <li><a href="#"><span>👤</span> Profile</a></li>
+                    <li><a href="#"><span>💼</span> Departments</a></li>
+                    <li><a href="#"><span>📄</span> Reports</a></li>
+                    <li><a href="#"><span>❓</span> Help</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main>
+            <header>
+                <div class="title">☰</div>
+                <div class="user-info">
+                    <span class="notification">🔔</span>
+                    <span id="username">NAT</span>
+                </div>
+            </header>
+            
+            <section class="content">
+                <div id="spinner"></div>
+
+                <h2 id="contentTitle">List Department</h2>
+                
+                <div id="actions" class="actions">
+                    <div class="actions__search">
+                        <input type="text" placeholder="Search department" class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="actions__buttons">
+                        <button class="create-department add" id="openCreateModal"><i class="fas fa-plus"></i></button>
+                        <button class="create-department reload" id="reloadData"><i class="fas fa-repeat"></i></button>
+                        <button class="create-department delete" id="openDeleteModal"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="table__wrapper">
+                    <table id="departmentTable">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="check-all"></th>
+                                <th>
+                                    No.
+                                    <i class="fas fa-caret-up"></i>
+                                    <i class="fas fa-caret-down"></i>
+                                </th>
+                                <th>
+                                    Department Name
+                                    <i class="fas fa-caret-up"></i>
+                                    <i class="fas fa-caret-down"></i>
+                                </th>
+                                <th>
+                                    Department ID
+                                    <i class="fas fa-caret-up"></i>
+                                    <i class="fas fa-caret-down"></i>
+                                </th>
+                                <th>
+                                    Account Quantity
+                                    <i class="fas fa-caret-up"></i>
+                                    <i class="fas fa-caret-down"></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Detail form (initially hidden) -->
+                <div id="detailForm" class="detail-form">
+                    <div class="detailForm__title">
+                        <span id="detailDepartmentID"></span>
+                        <h2 id="detailDepartmentName"></h2>
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <form>
+                        <div id="accountDetails" class="account-details">
+                            <table id="accountTable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <th>
+                                            Account ID
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Phone
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal-buttons">
+                            <button type="button" id="detail-back-table">Back Detail Table</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <footer>
+                Power by I4 C 2020
+            </footer>
+
+            <div class="notify">
+                <span>Create successfully !</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create form -->
+    <div id="createDepartmentModal" class="modal"">
+        <div class="modal-content">
+            <h2>Create Department</h2>
+            <label for="departmentName">Department Name:</label>
+            <input type="text" id="departmentName" placeholder="Enter department name">
+            <p class="error-message">Invalid input !</p>
+            <div class="modal-buttons">
+                <button>Save</button>
+                <button>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete form -->
+    <div id="deleteDepartmentModal" class="modal"">
+        <div class="modal-content">
+            <h2>Delete this Department?</h2>
+            <div class="modal-buttons">
+                <button>Delete</button>
+                <button>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Department Name -->
+    <div id="editDepartmentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Edit Department Name</h2>
+            <label for="departmentName">New Department Name:</label>
+            <input type="text" id="newDepartmentName" placeholder="Enter department name">
+            <p class="error-message">Please fill in a name!</p>
+            <div class="modal-buttons">
+                <button>Save</button>
+                <button>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./JQuery/jquery-3.7.1.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
